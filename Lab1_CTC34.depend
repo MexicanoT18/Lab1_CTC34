@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1473627354 source:c:\users\dv7\documents\ctc-34\lab1_ctc34\main.cpp
+	<iostream>
+	"Automaton.h"
+	<cstdio>
+
+1473625860 c:\users\dv7\documents\ctc-34\lab1_ctc34\include\automaton.h
+	<string>
+	<vector>
+	"Node.h"
+
+1473626398 c:\users\dv7\documents\ctc-34\lab1_ctc34\include\node.h
+	<map>
+	<set>
+
+1473627670 source:c:\users\dv7\documents\ctc-34\lab1_ctc34\src\automaton.cpp
+	"Automaton.h"
+	<cstdio>
+
+1473626892 source:c:\users\dv7\documents\ctc-34\lab1_ctc34\src\node.cpp
+	"Node.h"
+
