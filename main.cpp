@@ -10,6 +10,14 @@ void testString(string test){
     automaton.print();
 }
 
+void testExpression(string test,string expre){
+    Automaton automaton;
+    automaton.addExpression(test);
+    automaton.possibleStates(expre);
+    automaton.print();
+    automaton.printStates();
+}
+
 void testConcatenation(){
     string test = "ab";
     testString(test);
@@ -47,6 +55,9 @@ int main()
     //testPlus();
     //testConcatenation();
     //testPlusConcat();
-    testKleener();
+    //testKleener();
+    //testExpression("a*ba*b","aaaaabaaa");
+    int n;
+    scanf("%d",&n);
     return 0;
 }

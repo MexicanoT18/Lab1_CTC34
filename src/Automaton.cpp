@@ -25,6 +25,15 @@ void Automaton::print(){
     }
 }
 
+void Automaton::printStates(){
+    set<int>::iterator it;
+    printf("End States:\n");
+    for (it = endstates.begin();it!=endstates.end();it++){
+        printf("%d ",*it);
+    }
+    printf("\n");
+}
+
 bool Automaton::isCarac(char carac){
     return (carac >= 'a' && carac <= 'z') ||
         (carac >= 'A' && carac <= 'Z') ||
@@ -92,6 +101,38 @@ bool Automaton::addExpression(int s, int t, string expression){
     }
 
     return false;
+}
+
+void Automaton::possibleStatesRecurs(string expression,int index,Node node,map<ii,bool> used){
+    int j;
+    char letter;
+
+    if (used[ii(index,node.getId())])return;
+    used[ii(index,node.getId())]=true;
+
+    if (index == (int)expression.size()){
+        endstates.insert(node.getId());
+        j = 1;
+        letter = '&';
+    }else {
+        j=0;
+        letter = expression[index];
+    }
+    set<int>::iterator it;
+    for (; j<2; j++)
+    {
+        for (it = node.adj[letter].begin(); it!=node.adj[letter].end(); it++)
+        {
+            possibleStatesRecurs(expression,index+1-j,nodes[*it],used);
+        }
+        letter = '&';
+    }
+}
+
+void Automaton::possibleStates(string expression){
+    endstates.clear();
+    map<ii,bool> used;
+    possibleStatesRecurs(expression,0,nodes[0],used);
 }
 
 Automaton::~Automaton()

@@ -20,3 +20,25 @@
 1473626892 source:c:\users\dv7\documents\ctc-34\lab1_ctc34\src\node.cpp
 	"Node.h"
 
+1473642179 source:c:\users\asus\documents\github\lab1_ctc34\main.cpp
+	<iostream>
+	"Automaton.h"
+	<cstdio>
+
+1473641705 c:\users\asus\documents\github\lab1_ctc34\include\automaton.h
+	<string>
+	<vector>
+	<algorithm>
+	"Node.h"
+
+1473631377 c:\users\asus\documents\github\lab1_ctc34\include\node.h
+	<map>
+	<set>
+
+1473631377 source:c:\users\asus\documents\github\lab1_ctc34\src\node.cpp
+	"Node.h"
+
+1473642535 source:c:\users\asus\documents\github\lab1_ctc34\src\automaton.cpp
+	"Automaton.h"
+	<cstdio>
+
