@@ -1,44 +1,45 @@
 # depslib dependency file v1.0
-1473627354 source:c:\users\dv7\documents\ctc-34\lab1_ctc34\main.cpp
+1474991840 source:c:\users\dv7\documents\ctc-34\lab1_ctc34\main.cpp
 	<iostream>
 	"Automaton.h"
 	<cstdio>
 
-1473625860 c:\users\dv7\documents\ctc-34\lab1_ctc34\include\automaton.h
-	<string>
-	<vector>
-	"Node.h"
-
-1473626398 c:\users\dv7\documents\ctc-34\lab1_ctc34\include\node.h
-	<map>
-	<set>
-
-1473627670 source:c:\users\dv7\documents\ctc-34\lab1_ctc34\src\automaton.cpp
-	"Automaton.h"
-	<cstdio>
-
-1473626892 source:c:\users\dv7\documents\ctc-34\lab1_ctc34\src\node.cpp
-	"Node.h"
-
-1473642179 source:c:\users\asus\documents\github\lab1_ctc34\main.cpp
-	<iostream>
-	"Automaton.h"
-	<cstdio>
-
-1473641705 c:\users\asus\documents\github\lab1_ctc34\include\automaton.h
+1474991635 c:\users\dv7\documents\ctc-34\lab1_ctc34\include\automaton.h
 	<string>
 	<vector>
 	<algorithm>
 	"Node.h"
 
-1473631377 c:\users\asus\documents\github\lab1_ctc34\include\node.h
+1473735661 c:\users\dv7\documents\ctc-34\lab1_ctc34\include\node.h
 	<map>
 	<set>
 
-1473631377 source:c:\users\asus\documents\github\lab1_ctc34\src\node.cpp
+1474991820 source:c:\users\dv7\documents\ctc-34\lab1_ctc34\src\automaton.cpp
+	"Automaton.h"
+	<cstdio>
+
+1473735534 source:c:\users\dv7\documents\ctc-34\lab1_ctc34\src\node.cpp
 	"Node.h"
 
-1473642535 source:c:\users\asus\documents\github\lab1_ctc34\src\automaton.cpp
+1474036486 source:c:\users\asus\documents\github\lab1_ctc34\main.cpp
+	<iostream>
+	"Automaton.h"
+	<cstdio>
+
+1474036486 c:\users\asus\documents\github\lab1_ctc34\include\automaton.h
+	<string>
+	<vector>
+	<algorithm>
+	"Node.h"
+
+1473735661 c:\users\asus\documents\github\lab1_ctc34\include\node.h
+	<map>
+	<set>
+
+1473735534 source:c:\users\asus\documents\github\lab1_ctc34\src\node.cpp
+	"Node.h"
+
+1474153472 source:c:\users\asus\documents\github\lab1_ctc34\src\automaton.cpp
 	"Automaton.h"
 	<cstdio>
 

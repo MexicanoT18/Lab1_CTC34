@@ -3,6 +3,7 @@
 Node::Node(int id)
 {
     _id = id;
+    isFinal = false;
 }
 
 void Node::addEdge(char carac, int to){

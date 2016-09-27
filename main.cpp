@@ -50,6 +50,23 @@ void testKleener(){
     testString(test);
 }
 
+void testEClosure(string test){
+    Automaton automaton;
+    automaton.addExpression(test);
+    automaton.print();
+    automaton.deleteETransitions();
+    automaton.print();
+}
+
+void testAutomata2RegExp(string test){
+    Automaton automaton;
+    automaton.addExpression(test);
+    automaton.print();
+    automaton.deleteETransitions();
+    automaton.print();
+    printf("Converted regular expression: |%s|\n", automaton.getRegExpression().c_str());
+}
+
 int main()
 {
     //testPlus();
@@ -57,7 +74,17 @@ int main()
     //testPlusConcat();
     //testKleener();
     //testExpression("a*ba*b","aaaaabaaa");
+    /*testAutomata2RegExp("(a+b)*bb(a+b)*");
     int n;
     scanf("%d",&n);
+    testAutomata2RegExp("(a(b+c))*");
+    scanf("%d",&n);
+    testAutomata2RegExp("a*b+b*a");
+    scanf("%d",&n);
+    testAutomata2RegExp("a*b*c*");
+    scanf("%d",&n);*/
+
+    testAutomata2RegExp("(a(b+c))*");
+
     return 0;
 }
