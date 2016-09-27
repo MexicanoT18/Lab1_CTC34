@@ -237,21 +237,104 @@ string Automaton::sum(string str1, string str2){
     if (str1 == str2) return str1;
     else if (str1 == "") return str2;
     else if (str2 == "") return str1;
-    else return str1 + "+" + str2;
+    else return "(" + str1 + "+" + str2 + ")";
 }
 
 string Automaton::concat(string str1, string str2){
     if (str1.size() == 0 || str2.size() == 0) return "";
     else if (str1 == "&") return str2;
     else if (str2 == "&") return str1;
-    else return str1 + str2;
+    else return "(" + str1 + str2 + ")";
 }
 
 string Automaton::getRegExpression(){
 
     size = (int)nodes.size();
 
-    L.resize(size);
+    //Inicializa
+    B.resize(size);
+    for(int i=0; i<size; i++){
+        B[i].clear();
+    }
+    A.resize(size);
+    for(int i=0; i<size; i++){
+        A[i].resize(size);
+        for(int j=0; j<size; j++){
+            A[i][j].clear();
+        }
+    }
+
+    B[end] = "&";
+
+    //Algoritmo
+    for(int i=0; i<size; i++){
+        for(int j=0; j<size; j++){
+            for(char a='a'; a<='z'; a++){
+                if (trans(i, j, a)){
+                    A[i][j] = sum(A[i][j], string() + a);
+                }
+            }
+        }
+    }
+
+    for (int n=size-1; n>=0; n--){
+        B[n] = star(A[n][n]) + B[n];
+        for(int j=0; j<=n; j++)
+            A[n][j] = star(A[n][n]) + A[n][j];
+        for (int i=0; i<=n; i++){
+            B[i] = B[i] + "+" + A[i][n] + B[n];
+            for(int j=0; j<=n; j++){
+                A[i][j] = sum(A[i][j], concat(A[i][n], A[n][j]));
+            }
+        }
+    }
+
+    return B[root];
+/*
+    //Inicialização
+
+    size = 3;
+
+    R.resize(size+1);
+    for(int i=1; i<=size; i++){
+        R[i].resize(size+1);
+        for(int j=1; j<=size; j++){
+            R[i][j].resize(size+1);
+            if (i == j) R[i][j][0] = "&";
+            else R[i][j][0] = "";
+            for(char a='a'; a<='z'; a++){
+                if (trans(i-1, j-1, a)){
+                    R[i][j][0] = sum(R[i][j][0], string() + a);
+                }
+            }
+        }
+    }
+
+    //Algoritmo
+    for(int k=1; k<=size; k++){
+        for(int i=1; i<=size; i++){
+            for(int j=1; j<=size; j++){
+                if (R[i][k][k-1].size() > 0 && R[k][k][k-1].size() > 0 && R[k][j][k-1].size() > 0)
+                    R[i][j][k] = sum(R[i][j][k-1], concat(R[i][k][k-1], concat(star(R[k][k][k-1]), R[k][j][k-1])));
+            }
+        }
+    }
+    for(int i=1; i<=size; i++){
+        for(int j=1; j<=size; j++){
+            printf("R[%d][%d] = %s ", i, j, R[i][j][0].c_str());
+        }
+        printf("\n");
+    }
+
+    return R[1][1][size];
+*/
+
+    //Inicialização
+
+    /*size = 3;
+    root = 0;
+    end = 2;*/
+   /* L.resize(size);
     for(int i=0; i<size; i++){
         L[i].resize(size);
         for(int j=0; j<size; j++){
@@ -283,7 +366,7 @@ string Automaton::getRegExpression(){
         printf("\n");
     }
 
-    return concat(concat(star(L[root][root]), L[root][end]), star(sum(concat(concat(L[end][root], star(L[root][root])), L[root][end]), L[end][end])));
+    return concat(concat(star(L[root][root]), L[root][end]), star(sum(concat(concat(L[end][root], star(L[root][root])), L[root][end]), L[end][end])));*/
 }
 
 Automaton::~Automaton()
