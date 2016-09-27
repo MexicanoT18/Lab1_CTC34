@@ -280,9 +280,9 @@ string Automaton::getRegExpression(){
     for (int n=size-1; n>=0; n--){
         B[n] = star(A[n][n]) + B[n];
         for(int j=0; j<=n; j++)
-            A[n][j] = star(A[n][n]) + A[n][j];
+            A[n][j] = sum(star(A[n][n]), A[n][j]);
         for (int i=0; i<=n; i++){
-            B[i] = B[i] + "+" + A[i][n] + B[n];
+            B[i] = sum(B[i], concat(A[i][n], B[n]));
             for(int j=0; j<=n; j++){
                 A[i][j] = sum(A[i][j], concat(A[i][n], A[n][j]));
             }
